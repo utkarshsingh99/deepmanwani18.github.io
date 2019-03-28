@@ -1,5 +1,14 @@
 jQuery(document).ready(function () {
 
+    var deadLinks = document.getElementsByClassName('dead-link');
+    for(var i = 0; i < deadLinks.length; i++) {
+        (function(index) {
+          deadLinks[index].addEventListener("click", function(e) {
+                e.preventDefault();           
+           })
+        })(i);
+      }
+      
     jQuery(".section-title-holder").stick_in_parent({offset_top: 64}).on("sticky_kit:stick", function (e) {
         jQuery('.menu-wrapper, .menu-wrapper .sub-menu').css('backgroundColor', jQuery(this).css("backgroundColor"));
         jQuery('.menu-wrapper a, .mob-menu').css('color', jQuery(this).find('.section-num span').css("color"));
